@@ -138,7 +138,7 @@ section { position: relative; z-index: 2; }
 }
 
 .hero-months {
-  margin-top: 3rem;
+  margin-top: 1rem;
   font-size: clamp(4rem, 15vw, 12rem);
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
@@ -157,7 +157,7 @@ section { position: relative; z-index: 2; }
 }
 
 .scroll-hint {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 0.2em;
   animation: fadeIn 2s ease 2s both;
@@ -188,7 +188,7 @@ section { position: relative; z-index: 2; }
    DISTANCE TRACKER
 ──────────────────────────────────────── */
 #distance {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: linear-gradient(180deg, #0a0a1a 0%, #0d0d2e 50%, #0a0a1a 100%);
 }
 
@@ -203,7 +203,7 @@ section { position: relative; z-index: 2; }
 .section-sub {
   text-align: center; color: rgba(255,255,255,0.4);
   font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .distance-map {
@@ -326,7 +326,7 @@ section { position: relative; z-index: 2; }
    LOVE NOTES
 ──────────────────────────────────────── */
 #lovenotes {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: #0a0a1a;
 }
 
@@ -379,66 +379,12 @@ section { position: relative; z-index: 2; }
 .note-card:nth-child(9) { background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(244,114,182,0.1)); }
 .note-card:nth-child(10){ background: linear-gradient(135deg, rgba(74,144,217,0.12), rgba(124,58,237,0.15)); }
 
-/* ────────────────────────────────────────
-   TIMELINE
-──────────────────────────────────────── */
-#timeline {
-  padding: 6rem 2rem;
-  background: linear-gradient(180deg, #0a0a1a 0%, #0f0920 50%, #0a0a1a 100%);
-}
-
-.timeline-wrapper {
-  max-width: 700px; margin: 0 auto;
-  position: relative;
-}
-.timeline-wrapper::before {
-  content: '';
-  position: absolute; left: 50%; top: 0; bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--purple), var(--blue), var(--purple));
-  transform: translateX(-50%);
-}
-
-.tl-item {
-  display: flex; align-items: center;
-  margin-bottom: 3rem;
-  animation: fadeInUp 0.8s ease both;
-}
-.tl-item:nth-child(even) { flex-direction: row-reverse; }
-
-.tl-content {
-  width: calc(50% - 2rem);
-  background: var(--glass); border: 1px solid var(--glass-border);
-  border-radius: 16px; padding: 1.5rem;
-  backdrop-filter: blur(12px);
-  transition: transform 0.3s ease;
-}
-.tl-content:hover { transform: scale(1.03); }
-
-.tl-dot {
-  width: 16px; height: 16px;
-  border-radius: 50%; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--purple-light), var(--blue-light));
-  box-shadow: 0 0 20px var(--purple-light);
-  margin: 0 1rem; z-index: 1;
-}
-
-.tl-date {
-  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--blue-light); margin-bottom: 0.4rem;
-}
-.tl-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-weight: 600;
-}
-.tl-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
-.tl-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
 /* ────────────────────────────────────────
    MARIGOLD GIFT
 ──────────────────────────────────────── */
 #gift {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: #0a0a1a;
   text-align: center;
 }
@@ -479,7 +425,7 @@ section { position: relative; z-index: 2; }
    FUN FACTS - Astha's favourites
 ──────────────────────────────────────── */
 #favorites {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: linear-gradient(180deg, #0a0a1a, #0d102a, #0a0a1a);
 }
 
@@ -517,7 +463,7 @@ section { position: relative; z-index: 2; }
    LETTER
 ──────────────────────────────────────── */
 #letter {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: #0a0a1a;
 }
 
@@ -562,7 +508,7 @@ section { position: relative; z-index: 2; }
    FOOTER
 ──────────────────────────────────────── */
 footer {
-  padding: 4rem 2rem; text-align: center; position: relative; z-index: 2;
+  padding: 2rem 2rem; text-align: center; position: relative; z-index: 2;
   background: #0a0a1a;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
@@ -757,66 +703,13 @@ footer {
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     TIMELINE
-═════════════════════════════════════ -->
-<section id="timeline">
-  <h2 class="section-title reveal">Our <span>Story</span></h2>
-  <p class="section-sub reveal">Every moment, etched in stars</p>
-
-  <div class="timeline-wrapper">
-    <div class="tl-item reveal">
-      <div class="tl-content">
-        <div class="tl-emoji">💌</div>
-        <div class="tl-date">25 October 2025</div>
-        <div class="tl-title">The Proposal 💍</div>
-        <div class="tl-desc">Rishabh said the three most important words and changed everything.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div style="width:calc(50% - 2rem)"></div>
-    </div>
-
-    <div class="tl-item reveal">
-      <div style="width:calc(50% - 2rem)"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-emoji">🌸</div>
-        <div class="tl-date">October 2025 — Now</div>
-        <div class="tl-title">Long Distance Love</div>
-        <div class="tl-desc">1,700 km apart, but every call, every text, every moment — pure magic.</div>
-      </div>
-    </div>
-
-    <div class="tl-item reveal">
-      <div class="tl-content">
-        <div class="tl-emoji">💐</div>
-        <div class="tl-date">March 25, 2026</div>
-        <div class="tl-title">5 Month Anniversary 🎉</div>
-        <div class="tl-desc">Rishabh gave Astha marigolds and built her this entire website. That's love.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div style="width:calc(50% - 2rem)"></div>
-    </div>
-
-    <div class="tl-item reveal">
-      <div style="width:calc(50% - 2rem)"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-emoji">✈️</div>
-        <div class="tl-date">5 June 2026</div>
-        <div class="tl-title">We Finally Meet! 🥺💜</div>
-        <div class="tl-desc">The most awaited day. Rishabh is counting down every second.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ════════════════════════════════════
      MARIGOLD GIFT
 ═════════════════════════════════════ -->
 <section id="gift">
   <h2 class="section-title reveal">A <span>Gift</span> For You</h2>
-  <p class="section-sub reveal">🌼 Marigold — the flower I gave you today 🌼</p>
+  <p class="section-sub reveal">🌼 Gifted on 26 December 2025 🌼</p>
 
   <div class="flower-stage reveal">
     <svg class="marigold-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -849,7 +742,7 @@ footer {
     </svg>
 
     <div class="gift-message">
-      I gave you a <span class="highlight">marigold</span> today, Astha. 🌼<br>
+      I gave you a <span class="highlight">marigold</span> on 26th December. 🌼<br>
       It's not a tulip (your favourite 🌷), I know —<br>
       but it blooms as bright as <span class="highlight-b">my love for you</span>.<br>
       <br>
