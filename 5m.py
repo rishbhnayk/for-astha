@@ -5,10 +5,6 @@ Run with: python anniversary.py
 Then open: http://localhost:8080
 """
 
-import http.server
-import socketserver
-import webbrowser
-import threading
 import time
 
 HTML = """<!DOCTYPE html>
@@ -1061,37 +1057,63 @@ document.head.appendChild(style);
 </html>"""
 
 
-class SilentHandler(http.server.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/html; charset=utf-8")
-        self.end_headers()
-        self.wfile.write(HTML.encode("utf-8"))
-
-    def log_message(self, format, *args):
-        pass  # silent logging
+try:
+    import streamlit as st
+    import streamlit.components.v1 as components
+    STREAMLIT = True
+except ImportError:
+    STREAMLIT = False
 
 
-PORT = 8080
+def run_streamlit():
+    st.set_page_config(
+        page_title="Rishabh ♡ Astha — 5 Months",
+        page_icon="💜",
+        layout="wide",
+    )
+    # hide streamlit chrome for a clean full-page feel
+    st.markdown("""
+        <style>
+        #MainMenu, header, footer { visibility: hidden; }
+        .block-container { padding: 0 !important; max-width: 100% !important; }
+        </style>
+    """, unsafe_allow_html=True)
+    components.html(HTML, height=6000, scrolling=True)
 
-def open_browser():
-    time.sleep(1.5)
-    webbrowser.open(f"http://localhost:{PORT}")
+
+def run_http():
+    """Fallback: plain HTTP server with automatic port selection."""
+    import http.server, socketserver, webbrowser, threading
+
+    class Handler(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.send_header("Content-type", "text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(HTML.encode("utf-8"))
+        def log_message(self, *a): pass
+
+    for port in range(8080, 8100):
+        try:
+            server = socketserver.TCPServer(("", port), Handler)
+            server.allow_reuse_address = True
+            break
+        except OSError:
+            continue
+    else:
+        print("❌ Could not find a free port between 8080-8099.")
+        return
+
+    print(f"\n💜 Opening at http://localhost:{port}  — press Ctrl+C to stop\n")
+    threading.Thread(target=lambda: (time.sleep(1.2), webbrowser.open(f"http://localhost:{port}")), daemon=True).start()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n💜 Server stopped. Love never does. 💙")
 
 
 if __name__ == "__main__":
-    print("╔══════════════════════════════════════════╗")
-    print("║   Rishabh ♡ Astha — 5 Month Anniversary  ║")
-    print("╠══════════════════════════════════════════╣")
-    print(f"║  Server running at http://localhost:{PORT}   ║")
-    print("║  Press Ctrl+C to stop                    ║")
-    print("╚══════════════════════════════════════════╝")
-
-    threading.Thread(target=open_browser, daemon=True).start()
-
-    with socketserver.TCPServer(("", PORT), SilentHandler) as httpd:
-        httpd.allow_reuse_address = True
-        try:
-            httpd.serve_forever()
-        except KeyboardInterrupt:
-            print("\n💜 Server stopped. Love never does. 💙")
+    if STREAMLIT:
+        run_streamlit()
+    else:
+        run_http()
